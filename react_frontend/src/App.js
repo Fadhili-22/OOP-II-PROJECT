@@ -11,17 +11,17 @@ import History from './components/History';
 function App() {
   return (
     <UserProvider>
-      <Router>
-        <Appbar />
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/payments" element={<PaymentOverview />} />
-          <Route path="/support" element={<SupportTickets />} />
+    <Router>
+      <Appbar />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/payments" element={<PaymentOverview />} />
+        <Route path="/support" element={<SupportTickets />} />
           <Route path="/tickets/:ticketId" element={<TicketDetail />} />
-          <Route path="/documents" element={<DocumentCenter />} />
-          <Route path="/history" element={<History />} />
-        </Routes>
-      </Router>
+        <Route path="/documents" element={<DocumentCenter />} />
+        <Route path="/history" element={<History />} />
+      </Routes>
+    </Router>
     </UserProvider>
   );
 }

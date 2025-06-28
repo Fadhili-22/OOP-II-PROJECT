@@ -1,5 +1,5 @@
 // components/DocumentCenter.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
   Box, 
   Typography, 
@@ -31,7 +31,6 @@ const DocumentCenter = () => {
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploading, setUploading] = useState(false);
@@ -40,11 +39,7 @@ const DocumentCenter = () => {
     description: ''
   });
 
-  useEffect(() => {
-    fetchDocuments();
-  }, [user]);
-
-  const fetchDocuments = async () => {
+  const fetchDocuments = useCallback(async () => {
     if (!user?.id) return;
     
     try {
@@ -58,7 +53,11 @@ const DocumentCenter = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user?.id]);
+
+  useEffect(() => {
+    fetchDocuments();
+  }, [fetchDocuments]);
 
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
@@ -194,13 +193,13 @@ const DocumentCenter = () => {
           </Button>
         </Box>
       ) : (
-        <List>
+      <List>
           {documents.map((doc) => (
             <ListItem key={doc.id} divider>
-              <ListItemIcon>
-                <Description />
-              </ListItemIcon>
-              <ListItemText
+            <ListItemIcon>
+              <Description />
+            </ListItemIcon>
+            <ListItemText
                 primary={
                   <Box display="flex" alignItems="center" gap={1}>
                     <Typography variant="subtitle1">
@@ -238,9 +237,9 @@ const DocumentCenter = () => {
                   Download
                 </Button>
               )}
-            </ListItem>
-          ))}
-        </List>
+          </ListItem>
+        ))}
+      </List>
       )}
 
       <Button

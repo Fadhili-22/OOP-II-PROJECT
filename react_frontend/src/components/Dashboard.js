@@ -21,19 +21,19 @@ const cardData = [
     path: '/support',
   },
   {
-    title: 'Documents',
-    description: 'Access and view your uploaded documents',
-    icon: <Description />,
-    color: '#f59e0b',
-    path: '/documents',
-  },
-  {
-    title: 'History',
-    description: 'See your payment and request history',
-    icon: <HistoryIcon />,
-    color: '#8b5cf6',
-    path: '/history',
-  }
+  title: 'Documents',
+  description: 'Access and view your uploaded documents',
+  icon: <Description />,
+  color: '#f59e0b',
+  path: '/documents',
+},
+{
+  title: 'History',
+  description: 'See your payment and request history',
+  icon: <HistoryIcon />,
+  color: '#8b5cf6',
+  path: '/history',
+}
 ];
 
 const Dashboard = () => {

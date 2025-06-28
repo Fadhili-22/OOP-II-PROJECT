@@ -6,7 +6,7 @@ import { useUser } from '../contexts/UserContext';
 import { paymentService } from '../services/paymentService';
 
 const PaymentOverview = () => {
-  const navigate = useNavigate();
+   const navigate = useNavigate();
   const { user } = useUser();
   const [paymentSummary, setPaymentSummary] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -158,26 +158,26 @@ const PaymentOverview = () => {
           <Stack spacing={2}>
             {paymentSummary.recentPayments.map((payment, index) => (
               <Card key={index}>
-                <CardContent>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" spacing={2} alignItems="center">
-                      <AttachMoney sx={{ color: '#4CAF50' }} />
-                      <Box>
+          <CardContent>
+            <Stack direction="row" justifyContent="space-between" alignItems="center">
+              <Stack direction="row" spacing={2} alignItems="center">
+                <AttachMoney sx={{ color: '#4CAF50' }} />
+                <Box>
                         <Typography variant="body1">
                           {formatCurrency(payment.amount)}
                         </Typography>
                         <Typography variant="body2">
                           {formatDate(payment.date)}
                         </Typography>
-                      </Box>
-                    </Stack>
-                    <Stack direction="row" spacing={1} alignItems="center">
-                      <Chip label="Paid" color="success" />
-                      <Typography variant="body2">Bank Transfer</Typography>
-                    </Stack>
-                  </Stack>
-                </CardContent>
-              </Card>
+                </Box>
+              </Stack>
+              <Stack direction="row" spacing={1} alignItems="center">
+                <Chip label="Paid" color="success" />
+                <Typography variant="body2">Bank Transfer</Typography>
+              </Stack>
+            </Stack>
+          </CardContent>
+        </Card>
             ))}
           </Stack>
         ) : (

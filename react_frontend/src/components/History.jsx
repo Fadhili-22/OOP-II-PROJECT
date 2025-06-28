@@ -1,5 +1,5 @@
 // components/History.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
   Box, 
   Typography, 
@@ -38,11 +38,7 @@ const PaymentHistory = () => {
     openTickets: 0
   });
 
-  useEffect(() => {
-    fetchHistory();
-  }, [user]);
-
-  const fetchHistory = async () => {
+  const fetchHistory = useCallback(async () => {
     if (!user?.id) return;
     
     try {
@@ -71,7 +67,11 @@ const PaymentHistory = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user?.id]);
+
+  useEffect(() => {
+    fetchHistory();
+  }, [fetchHistory]);
 
   const getStatusColor = (status, type) => {
     if (type === 'payment') return 'success';
@@ -171,14 +171,14 @@ const PaymentHistory = () => {
           </Typography>
         </Box>
       ) : (
-        <List>
+      <List>
           {history.map((item, index) => (
             <React.Fragment key={item.id}>
               <ListItem divider>
-                <ListItemIcon>
+            <ListItemIcon>
                   {getIcon(item.icon)}
-                </ListItemIcon>
-                <ListItemText
+            </ListItemIcon>
+            <ListItemText
                   primary={
                     <Box display="flex" alignItems="center" gap={1} mb={1}>
                       <Typography variant="subtitle1">
@@ -208,7 +208,7 @@ const PaymentHistory = () => {
                       </Typography>
                     </>
                   }
-                />
+            />
                 {item.amount && (
                   <Box textAlign="right">
                     <Typography variant="h6" color="success.main">
@@ -216,11 +216,11 @@ const PaymentHistory = () => {
                     </Typography>
                   </Box>
                 )}
-              </ListItem>
+          </ListItem>
               {index < history.length - 1 && <Divider />}
             </React.Fragment>
-          ))}
-        </List>
+        ))}
+      </List>
       )}
 
       <Button

@@ -176,9 +176,9 @@ const SupportTickets = () => {
       )}
 
       <Stack direction="row" spacing={2} mb={3}>
-        <Button variant="contained" onClick={() => navigate('/')}>
-          Back to Dashboard
-        </Button>
+      <Button variant="contained" onClick={() => navigate('/')}>
+        Back to Dashboard
+      </Button>
         <Button 
           variant="contained" 
           startIcon={<Add />}
@@ -189,23 +189,23 @@ const SupportTickets = () => {
       </Stack>
 
       {tickets.length > 0 ? (
-        <Stack spacing={2}>
-          {tickets.map((ticket, index) => (
+      <Stack spacing={2}>
+        {tickets.map((ticket, index) => (
             <Card key={ticket.id || index}>
-              <CardContent>
-                <Stack direction="row" justifyContent="space-between" alignItems="center">
-                  <Stack direction="row" spacing={2}>
+            <CardContent>
+              <Stack direction="row" justifyContent="space-between" alignItems="center">
+                <Stack direction="row" spacing={2}>
                     {getStatusIcon(ticket.status)}
-                    <Box>
+                  <Box>
                       <Typography variant="subtitle1" fontWeight="bold">
                         {ticket.title || ticket.description?.substring(0, 50) + '...'}
                       </Typography>
                       <Typography variant="body2">
                         {ticket.description}
                       </Typography>
-                    </Box>
-                  </Stack>
-                  <Box textAlign="right">
+                  </Box>
+                </Stack>
+                <Box textAlign="right">
                     <Chip 
                       label={ticket.status || 'Open'} 
                       color={getStatusColor(ticket.status)} 
@@ -227,12 +227,12 @@ const SupportTickets = () => {
                     >
                       View Details
                     </Button>
-                  </Box>
-                </Stack>
-              </CardContent>
-            </Card>
-          ))}
-        </Stack>
+                </Box>
+              </Stack>
+            </CardContent>
+          </Card>
+        ))}
+      </Stack>
       ) : (
         <Card>
           <CardContent>

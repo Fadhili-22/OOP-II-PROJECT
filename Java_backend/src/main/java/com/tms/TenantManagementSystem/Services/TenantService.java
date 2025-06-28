@@ -15,7 +15,7 @@ public class TenantService {
 
     @Autowired
     private TenantRepository tenantRepository;
-    
+
     @Autowired
     private PaymentService paymentService;
 
