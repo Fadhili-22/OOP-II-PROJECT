@@ -1,0 +1,63 @@
+Agent controller:
+1. Get all agents - http://localhost:8082/api/agents? - get
+2. Get agent by Id - http://localhost:8082/api/agents/1 - get
+3. Create new agent - http://localhost:8082/api/agents - post
+4. Update agent - http://localhost:8082/api/agents/1 - put
+5. Delete Agent - http://localhost:8082/api/agents/1 - delete
+
+Auth controller:
+1. user login - http://localhost:8082/api/auth/login - post
+
+landlord controller:
+1. get all  landlords - http://localhost:8082/api/landlords - Get
+2. get landlord by Id - http://localhost:8082/api/landlords/1 - get
+3. create landlord - http://localhost:8082/api/landlords - post
+4. update landlord - http://localhost:8082/api/landlords/1 - put
+5. delete landlord - http://localhost:8082/api/landlords/1 - delete
+
+
+Lease Controller:
+1. Get lease by Id - http://localhost:8082/api/leases/{id} -get
+2. Create New lease - http://localhost:8082/api/leases - post
+3. Get all leases -http://localhost:8082/api/leases - get
+4. Update lease - http://localhost:8082/api/leases/LS-001 - put
+5. delete lease - http://localhost:8082/api/leases/LS-001 - delete
+6. renew lease - http://localhost:8082/api/leases/LS-001/renew - post
+7. screen tenant - http://localhost:8082/api/leases/screen - post
+8. lease analytics - http://localhost:8082/api/leases/analytics/leases - get
+9. payment analytics - http://localhost:8082/api/leases/analytics/payments - get
+
+payment controller:
+1. get all payments - http://localhost:8082/api/payments - get
+2. get payment by id - http://localhost:8082/api/payments/1 - get
+3. create new payment - http://localhost:8082/api/payments - post
+4. delte payment - http://localhost:8082/api/payments/1 - delete
+
+
+payment history controller:
+1. get all payment histories - http://localhost:8082/api/paymentHistories - get
+2. get payment history by tenant - http://localhost:8082/api/paymentHistories/1 - get
+3. create payment history - http://localhost:8082/api/paymentHistories - post
+5. delete tenant payment history - http://localhost:8082/api/paymentHistories/1 - delete
+
+Tenant controller:
+1. get all tenants - http://localhost:8082/api/tenants -get
+2. get tenant by id - http://localhost:8082/api/tenants/1 -get
+3. create new tenant - http://localhost:8082/api/tenants - post
+4. update tenant - http://localhost:8082/api/tenants/1 -put
+5. delete tenant - http://localhost:8082/api/tenants/1 - delete
+6. pay rent -http://localhost:8082/api/tenants/1/pay?amount=35000& - post
+7. get payments for tenants - http://localhost:8082/api/tenants/1/payments - get
+8. new requests - http://localhost:8082/api/tenants/1/contact - put
+9. get tenants with no payments - http://localhost:8082/api/tenants/unpaid -get
+
+ticket controller:
+1. get all tickets - http://localhost:8082/api/tickets - get
+2. get ticket by id - http://localhost:8082/api/tickets/1 - get
+3. create ticket - http://localhost:8082/api/tickets - post
+4. delete ticket - http://localhost:8082/api/tickets/1 - delete
+5. upload ticket with image - http://localhost:8082/api/tickets/upload - post
+6. assign staff - http://localhost:8082/api/tickets/1/assign?staff=Technician+Mike - put
+7. update ticket status - http://localhost:8082/api/tickets/1/status?status=In+Progress - put
+8. add resolution note - http://localhost:8082/api/tickets/1/resolution?notes=Replaced+faulty+switch - put
+
