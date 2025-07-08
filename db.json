@@ -1,0 +1,43 @@
+
+import { DollarSign, MessageSquare, History, FileText } from 'lucide-react';
+import MenuCard from './MenuCard';
+
+const Dashboard = ({ onMenuSelect }: DashboardProps) => {
+  const menuItems = [
+    {
+      title: "Amount",
+      description: "View your payment status, amount paid, and outstanding balance",
+      icon: DollarSign,
+      iconColor: "bg-green-500",
+      bgGradient: "from-green-400 to-green-600",
+      key: "amount"
+    },
+    {
+      title: "Tickets",
+      description: "Report issues, submit maintenance requests with photos and track progress",
+      icon: MessageSquare,
+      iconColor: "bg-blue-500",
+      bgGradient: "from-blue-400 to-blue-600",
+      key: "tickets"
+    },
+    // ... other menu items
+  ];
+
+  return (
+    <div className="max-w-7xl mx-auto px-6 py-8 transition-colors">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        {menuItems.map((item) => (
+          <MenuCard
+            key={item.key}
+            title={item.title}
+            description={item.description}
+            icon={item.icon}
+            iconColor={item.iconColor}
+            bgGradient={item.bgGradient}
+            onClick={() => onMenuSelect(item.key)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
