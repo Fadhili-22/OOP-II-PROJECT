@@ -10,4 +10,13 @@ public class AuthRequest {
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+    // Small change: Added toString() method
+    @Override
+    public String toString() {
+        return "AuthRequest{" +
+                "username='" + username + '\'' +
+                ", password='[PROTECTED]'" +
+                '}';
+    }
 }

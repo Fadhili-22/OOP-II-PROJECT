@@ -6,6 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+// DTO used for login requests
 public class LoginRequest {
     @NotBlank
     private String username;

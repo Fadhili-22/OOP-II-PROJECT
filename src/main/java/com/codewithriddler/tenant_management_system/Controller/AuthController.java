@@ -7,7 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("authControllerBean")
+@RestController("authController") // changed from "authControllerBean" to "authController"
 @RequestMapping("/api/auth")
 public class AuthController {
     private final AuthService authService;

@@ -11,4 +11,7 @@ import lombok.Setter;
 public class LoginResponse {
     private String message;
     private User user;
+
+    // Small change: no-args constructor (won't affect current functionality)
+    public LoginResponse() {}
 }
